@@ -1,0 +1,16 @@
+{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>OAuth Demo</title>
+</head>
+<body>
+
+{% block content %}
+<h1>Welcome to the Github OAuth Proxy Page</h1>
+<h4>Access token: {{ access_token }}</h4>
+<a href="/listfiles">Click here to list the files on github</a>
+{% endblock %}
+</body>
+</html>

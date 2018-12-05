@@ -1,0 +1,16 @@
+{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>OAuth Demo</title>
+</head>
+<body>
+
+{% block content %}
+<h1>OAuth Demo</h1>
+<a href="https://github.com/login/oauth/authorize?client_id={{ client_id }}">Go to this app's Github page</a>
+{% endblock %}
+</body>
+</html>
+
