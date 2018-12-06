@@ -21,7 +21,10 @@ pres = Table(
 s = pres.select(pres.c.termnum == 16)
 
 results = s.execute()
+print(type(results))
 for row in results:
+    print(type(row))
+    print(dir(row))
     print(row.firstname, row.lastname, row.party)
 
 print('-------------')

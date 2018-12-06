@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <title>Oyster Checking</title>
 </head>
     {% for month in months %}
@@ -9,7 +9,7 @@
         {% if month is okforoysters %}
             EAT
         {% else %}
-            DON'T EAT
+            DON'T {# EAT #}
         {% endif %}
         <br/>
     {% endfor %}

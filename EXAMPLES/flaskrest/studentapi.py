@@ -25,7 +25,7 @@ def error_on_missing_id(id):
     if id not in STUDENTS:
         abort(404, message="Student {} doesn't exist".format(id))
 
-class StudentList(Resource):
+class Students(Resource):
     """
     Resource for lists of students
     """
@@ -65,7 +65,7 @@ class Student(Resource):
         :return: Student details as JSON
         """
         error_on_missing_id(id)
-        return STUDENTS.get(id), 201
+        return STUDENTS[id], 201
 
     def put(self, id):
         """
@@ -81,6 +81,22 @@ class Student(Resource):
         STUDENTS[id] = { 'name': name, 'grade': grade }
         return STUDENTS[id], 200  # send 201 if new record
 
+
+    # def patch(self, id):
+    #     """
+    #     Update one student record.
+    #
+    #     :param id: The student ID
+    #     :return: Confirmation
+    #     """
+    #     error_on_missing_id(id)
+    #     args = parser.parse_args()
+    #     name = args['name']
+    #     grade = args['grade']
+    #     STUDENTS[id] = { 'name': name, 'grade': grade }
+    #     return STUDENTS[id], 200  # send 201 if new record
+
+
     def delete(self, id):
         """
         Delete a student from the database
@@ -92,7 +108,7 @@ class Student(Resource):
         del STUDENTS[id]
         return '', 204
 
-api.add_resource(StudentList, '/api/1/students')
+api.add_resource(Students, '/api/1/students')
 api.add_resource(Student, '/api/1/student/<int:id>')
 
 if __name__ == '__main__':

@@ -42,8 +42,6 @@ class UsersResource(Resource):
     def post(self):
         args = parser.parse_args()
 
-        # username = request.get_json('username')
-        # email = request.get_json('email')
         username = args['username']
         email = args['email']
         new_user = User(username, email)
@@ -51,7 +49,7 @@ class UsersResource(Resource):
         db.session.add(new_user)
         db.session.commit()
 
-        return jsonify(new_user)
+        return jsonify(new_user), 201
 
     def get(self):
         all_users = User.query.all()
@@ -85,7 +83,6 @@ class UserResource(Resource):
 
 api.add_resource(UsersResource, '/users')
 api.add_resource(UserResource, '/user/<int:id>')
-
 
 
 if __name__ == '__main__':

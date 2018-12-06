@@ -43,6 +43,7 @@ def add_director(session, director, movies):
         m = Movie(movie_name, year)
         d.movies.append(m)
 
+
     session.add(d)
     session.commit()
 

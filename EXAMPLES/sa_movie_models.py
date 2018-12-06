@@ -3,7 +3,7 @@
 Define Director and Movie models (objects)
 '''
 from sqlalchemy import (
-    Column, Integer, String, ForeignKey
+    Column, Integer, String, ForeignKey, Date
 )
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
@@ -15,8 +15,9 @@ class Director(MOVIE_BASE):
     '''A film director.'''
     __tablename__ = 'Director'
     id = Column(Integer, primary_key=True)
-    last_name = Column(String(50))
+    last_name = Column(String(50),nullable=False)
     first_name = Column(String(50))
+    dob = Column(Date)
 
     movies = relationship(
         "Movie",

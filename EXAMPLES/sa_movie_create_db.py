@@ -9,7 +9,7 @@ from sa_movie_models import MOVIE_BASE
 def main():
     engine = create_engine(
         'sqlite:///../DATA/movies.db',
-        echo=False
+        echo=True
     )
     MOVIE_BASE.metadata.create_all(engine)
 

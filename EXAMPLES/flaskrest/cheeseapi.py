@@ -52,7 +52,7 @@ class Cheese(Resource):
         cheese = CHEESES.get(cheese_maker)
         return {cheese_maker: cheese}
 
-api.add_resource(Cheese, '/api/1.0/Cheese')
+api.add_resource(Cheese, '/api/1.0/cheese')
 
 if __name__ == '__main__':
     app.run(debug=True)
