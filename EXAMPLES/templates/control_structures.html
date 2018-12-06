@@ -7,15 +7,14 @@
 <body>
 <h1>Control Structures</h1>
 <br/>
-<ul>
-    {% for fruit in fruits %}
-    {% if fruit | length > 5 %}
-    <li><i>{{ fruit }}</i></li>
-    {% else %}
-    <li>{{ fruit }}</li>
-    {% endif %}
-    {% endfor %}
-</ul>
+{% for fruit in fruits %}
+<h2> {{ loop.index }} </h2>
+{% if fruit | length > 5 %}
+<i>{{ fruit }}</i>
+{% else %}
+{{ fruit }}
+{% endif %}
+{% endfor %}
 
 <br/>
 {% if  number > 25 %}

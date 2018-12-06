@@ -6,7 +6,7 @@ db = SQLAlchemy()
 print(db.Model.metadata.tables.items())
 
 class President(db.Model):
-    __table__ = db.Model.metadata.tables['president']
+    __table__ = db.Model.metadata.tables['presidents']
 
     def __repr__(self):
         return '<President {} {}>'.format(self.firstname, self.lastname)
@@ -14,7 +14,7 @@ class President(db.Model):
 
 # class President(db.Model):
 # #    id = db.Column(db.Integer, primary_key=True)
-#     termnum = db.Column(db.Integer, primary_key=True)
+#     termnum = db.Column(db.Integer)
 #     fname = db.Column(db.String(80))
 #     lname = db.Column(db.String(80))
 #     dbirth = db.Column(db.Date())

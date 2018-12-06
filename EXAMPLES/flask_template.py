@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# (c)2015 John Strickler
-
 from flask import Flask
 from flask_debugtoolbar import DebugToolbarExtension
 
@@ -14,11 +11,7 @@ DebugToolbarExtension(app)
 
 @app.route('/')
 def index():
-    page = '<body><h1>Powers of two </h1>\n'
-    for i in range(32):
-        page += f'<b>2^{i} = {2**i}</b><br/></body></html>\n'
-    page += "</body>"
-    return page
+    return "<body><h1>Hello</h1></body>"
 
 if __name__ == '__main__':
     app.run(debug=True)

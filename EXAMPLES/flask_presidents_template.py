@@ -19,9 +19,9 @@ def president_by_term(termnum):
 
     """Retrieve president information for a specified term number"""
     term = int(termnum)
-    if 0 < term < 45:
-        presidents_list = [President(term)]
-        return render_template('president_results.html', presidents=presidents_list)
+    if 0 < term < 46:
+        presidents = [President(term)]
+        return render_template('president_results.html', presidents=presidents)
     else:
         html_content = '<h2>Sorry,  {} is not a valid term number</h2>'.format(term)
         return html_content

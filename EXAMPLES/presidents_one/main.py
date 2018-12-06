@@ -24,7 +24,8 @@ def index():
 @app.route('/president/<int:termnum>')
 def show_pres(termnum):
     # select from president ....
-    p = President.query.filter(President.termnum == termnum).first()
+    fields_wanted = ['fname', 'lname']
+    p = db.session.query('President').options(loadonly(fields_wanted)).filter(President.termnum == termnum).first()
     if p:
         html = '<html><head><title>President #{}</title></head><body>'.format(termnum)
         html += 'President #{}<br/>\n'.format(termnum)
@@ -37,7 +38,7 @@ def show_pres(termnum):
 
         return html, 200
     else:
-        return "No such president", 200
+        return "No such president", 403
 
 if __name__ == '__main__':
     app.run(debug=True)
